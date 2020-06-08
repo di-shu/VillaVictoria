@@ -1,7 +1,7 @@
 const header = document.querySelector('.header__container__full');
 
 
-export default function checkScrollY() {
+export default function checkScrollYHead() {
 
     window.addEventListener('scroll', function() {
         if(pageYOffset < 500) {

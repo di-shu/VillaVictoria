@@ -153,12 +153,18 @@ header {
     align-items: center;
     .header__nav2__item {
         margin-bottom: 20px;
+        opacity: 0.5;
+    }
+    
+    .header__nav2__item:hover {
+        opacity: 1;
     }
 
     .header__nav2__rectangle {
         width: 1px;
         height: 310px;
         background-color: #fff;
+        opacity: 0.5;
     }
 }
 
@@ -198,6 +204,10 @@ header {
 .main__about {
     background-color: #f2f2f4;
     padding-top: 120px;
+}
+
+.main__about__elements {
+    display: none;
 }
 
 .main__container {
@@ -311,7 +321,6 @@ header {
 
     .main__features__card {
         width: 368px;
-        height: 362px;
         border-radius: 12px;
         box-shadow: 0 8px 24px -2px rgba(6, 28, 40, 0.12);
         padding: 30px;
@@ -320,9 +329,6 @@ header {
         margin-right: auto;
     }
 
-    .main__features__card:last-child {
-        
-    }
 
     .main__features__card-icon {
         margin-bottom: 24px;
@@ -504,12 +510,22 @@ header {
         margin-bottom: 62px;
     }
 
+    .main__services__cards {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center ;
+    }
+
     .main__services__card {
         width: 440px;
         height: 330px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        margin: 0 auto;
+        margin-bottom: 40px;
     }
 
     .main__services__card-img1 {
@@ -704,14 +720,74 @@ header {
 }
 
 .footer__head__callback-card {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    height: 374px;
+    width: 445px;
+    box-shadow: 0 8px 24px -2px rgba(6, 28, 40, 0.12);
+    background-color: #ffffff;
+    padding: 50px 0px 56px 50px;
+    
+    .footer__head__callback__title {
+        font-size: 42px;
+        margin-bottom: 21px;
+    }
+
+    .footer__head__callback__info {
+        margin-bottom: 29px;
+    }
+
+    .footer__head__callback__info:last-child {
+        margin-bottom: 0;
+    }
+    
+    .footer__callback__info__title {
+        font-size: 16px;
+    }
+
+    .footer__callback__info__main {
+        font-size: 18px;
+    }
+}
+
+.footer_container__pos {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.hide__hoisting__container {
+    bottom: -50%;
+    transition-duration: 1s;
+}
+
+.show__hoisting__container {
+    bottom: 300px;
+    transition-duration: 1s ;
+}
+
+.hoisting__container {
+    position: fixed;
+}
+
+.hoisting__nav2 {
+    background-color: black;
 }
 
 @media screen and (max-width: 1090px) {
     
+    .row {
+        margin: 0px;
+    }
+
+    .col-12 {
+        padding: 0;
+    }
+
+    .col-6 {
+        padding: 0;
+    }
+
     h1 {
         font-size: 52px;
     }
@@ -764,9 +840,6 @@ header {
         margin-left: 0px;
     }
 
-    .main__features__cards {
-        // flex-wrap: wrap;
-    }
     
     
     .main__features .main__features__card {
@@ -775,6 +848,10 @@ header {
 
     .main__reservation .main__container {
         padding-left: 60px;
+    }
+
+    .main__reservation__content {
+        max-width: unset;
     }
 
     .main__reservation__img {
@@ -787,7 +864,17 @@ header {
     }
 
     .main__gallery .main__container {
-        padding: 0px 60px ;
+        padding: 0 ;
+    }
+
+    .main__gallery__head {
+        padding: 0px 60px;
+        flex-direction: column;
+        justify-content: flex-start !important;
+    }
+
+    .main__gallery .main__gallery__description {
+        margin-left: 0;
     }
 
     .carousel-control-button {
@@ -798,5 +885,88 @@ header {
     .carousel-control-prev_icon {
         width: 6px;
     }
+
+    .flex-elem-direction {
+        flex-direction: column;
+    }
+
+   .image__animation {
+       display: none;
+   }
+
+   .elem__width {
+       max-width: 100%;
+   }
+
+   .main__elem1 .main__elem1__container {
+       max-width: 100%;
+   }
+
+   .main__elem1 {
+       width: 100%;
+       
+       img {
+           height: auto;
+       }
+   }
+
+   .main__elem2 {
+       display: none;
+   }
+
+   .main__elem1 .main__about__text {
+        margin-bottom: 0px;
+   }
+
+   .main__about__elements {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        
+
+    .image__animation {
+        display: block;
+        width: 900px;
+    }
+
+    .image__animation1 {
+        transform: translateY(100px);
+        margin-right: auto;
+        z-index: 3;
+    }
+
+    .image__animation2 {
+        transform: translateY(50px);
+        margin: 0 auto;
+        z-index: 2;
+    }
+
+    .image__animation3 {
+        margin-left: auto;
+        z-index: 1;
+    }
+
+    .rectangle {
+        height: 100%;
+    }
+
+   }
+
+   .main__container__elem__paddings {
+       padding: 0;
+   }
+
+   .main__services .main__services__card {
+       width: 100%;
+       height: 600px;
+
+       h1 {
+           font-size: 62px;
+       }
+   }
+
+   .main__make-reservation__container {
+       justify-content: center !important;
+   }
 
 }
