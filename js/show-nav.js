@@ -4,7 +4,7 @@ const nav = document.querySelector('.hoisting__container');
 export default function checkScrollYNav() {
 
     window.addEventListener('scroll', function() {
-        if(pageYOffset < nav.offsetTop) {
+        if(pageYOffset < nav.offsetTop+500) {
 
             if(nav.classList.contains('show__hoisting__container')){
                 nav.classList.remove('show__hoisting__container');
