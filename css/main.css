@@ -352,7 +352,6 @@ header {
 }
 
 .main__features .main__features__card-title {
-  max-width: 276px;
   font-size: 22px;
   line-height: 26px;
   font-weight: 600;
@@ -699,11 +698,31 @@ header {
   outline: none;
   width: 100%;
   height: 56px;
+  color: #22cbff;
 }
 
 .modal-content .modalCallbackForm__group input::placeholder {
   opacity: 0.4;
   color: #22cbff;
+  border-color: #22cbff;
+}
+
+.modal-content .modalCallbackForm__group .modalCallback__input-label {
+  display: none;
+}
+
+.modal-content .modalCallbackForm__group .show__label {
+  display: block;
+  color: #ff226b;
+  font-size: 14px;
+}
+
+.modal-content .modalCallbackForm__group .input__required {
+  border-color: #ff226b;
+}
+
+.modal-content .modalCallbackForm__group .input__required::placeholder {
+  color: #ff226b;
 }
 
 .modal-content .modalCallbackForm__group button {
@@ -918,6 +937,9 @@ header {
 }
 
 @media screen and (max-width: 1090px) {
+  .modal-content {
+    width: 820px;
+  }
   .row {
     margin: 0px;
   }
@@ -971,7 +993,7 @@ header {
     flex-wrap: wrap;
   }
   .main__features__cards .main__features__card {
-    height: 362px;
+    min-height: 362px;
     width: 360px;
     max-width: unset;
     margin-bottom: 20px;
@@ -1101,6 +1123,25 @@ header {
 }
 
 @media screen and (max-width: 920px) {
+  .modal-content {
+    width: 345px;
+    max-height: 450px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .modal-content .modal__close {
+    top: -40px;
+    right: 0;
+  }
+  .modal-content .modal__close .modal__close__1 {
+    background-color: #cdd2d4;
+  }
+  .modal-content .modal__close .modal__close__2 {
+    background-color: #cdd2d4;
+  }
+  .modal-content .modalCallbackForm__group {
+    width: 200px;
+  }
   h1 {
     font-size: 32px;
     letter-spacing: 1px;

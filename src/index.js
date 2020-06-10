@@ -6,6 +6,7 @@ import settingMobMenu from '../js/mobile-menu';
 import setSlickSlider from '../js/slick-slider';
 import sendForm from '../js/form';
 import initMask from '../js/mask-input';
+import checkInput from '../js/input-styiling';
 
 setSlickSlider();
 settingsSlider();
@@ -25,4 +26,5 @@ sendForm();
 
 initMask();
 
+checkInput();
 

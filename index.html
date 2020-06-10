@@ -485,8 +485,10 @@
                 <h1>Бронирование</h1>
                 <div class="modalCallbackForm__description">Вы почти у нас в гостях! Заполните небольшую форму и приходите к нам за уютом и заботой</div>
                 <div class="modalCallbackForm__group">
-                    <input type="text"  name="name" placeholder="Текс" required>
-                    <input type="tel"  name="number" pattern="+380\[0-9]{9}" placeholder="Номер телефона" required>
+                    <input type="text" id="modalCallback__input"  name="name" class="" placeholder="Имя" required>
+                    <label for="modalCallback__input" class="modalCallback__input-label">Поле не должно быть пустым</label>
+                    <input type="tel" id="modalCallback__input2"  name="number" class="phone"  placeholder="Номер телефона" required>
+                    <label for="modalCallback__input2 " class="modalCallback__input-label">Поле не должно быть пустым</label>
                     <button id="modal__callback__button" type="submit">Отправить</button>
                 </div>               
             </form>
@@ -531,7 +533,7 @@
                             </div>
                             <div class="footer__head__callback__info">
                                 <div class="footer__callback__info__title">Адрес</div>
-                                <div class="footer__callback__info__main"><strong>Новая Дофиновка, Иванова 1</strong></div>
+                                <div class="footer__callback__info__main"><strong>Новая Дофиновка, Ивановская 2</strong></div>
                             </div>
                             <div class="footer__head__callback__info">
                                 <div class="footer__callback__info__title">Почта</div>
