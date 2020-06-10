@@ -20,6 +20,10 @@
     font-style: normal;
 }
 
+*{
+    outline: none;
+}
+
 h1 {
     font-size: 'Proxima Nova SB';
     font-size: 72px;
@@ -85,15 +89,16 @@ header {
 
 .header__head {
     margin-bottom: 180px;
+    justify-content: space-between;
 }
 
 .hide__head {
     top: -90px;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
 }
 
 .show__head {
-    transition-duration: 1s;
+    transition-duration: 0.5s;
     top: 0;
 }
 
@@ -353,9 +358,8 @@ header {
         border-radius: 12px;
         box-shadow: 0 8px 24px -2px rgba(6, 28, 40, 0.12);
         padding: 30px;
-        margin-bottom: 40px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
 
@@ -461,7 +465,7 @@ header {
         left: 50%;
         margin-right: -50%;
         transform: translate(-50%, -50%);
-        width: 726px;
+        width: 80%;
         height: 80px;
     }
 
@@ -519,6 +523,7 @@ header {
     }
     .progress-number {
         margin-right: 40px;
+        white-space: nowrap;
     }
 
     .progress {
@@ -677,7 +682,19 @@ header {
         }
     }
 
-    
+    .modal__close:hover {
+        .modal__close__1,
+        .modal__close__2 {
+            background-color: #061c28;
+        }
+       
+    }
+
+    .close__btn {
+        width: 257px;
+        height: 56px;
+    }
+
 
     .modalCallbackForm {
         display: flex;
@@ -728,6 +745,14 @@ header {
 
     }
 }
+
+
+.modal__success-content {
+    width: 920px;
+    height: 414px;
+    padding: 77px 40px 100px;
+}
+
 
 .main__instafeed {
     min-height: 360px;
@@ -825,10 +850,17 @@ header {
 
 .hoisting__container {
     position: fixed;
+    z-index: 50;
 }
 
-.hoisting__nav2 {
-    background-color: black;
+
+#hoisting__nav2__facebook,
+#hoisting__nav2__instagram {
+    fill: #061c28;
+}
+
+.header__nav2__rectangle.hoisting__rect {
+    background-color: #061c28;
 }
 
 .main__instafeed__container {
@@ -846,10 +878,12 @@ header {
 
 .instafeed__img {
     height: 300px;
-    width: 300px;
+    width: 100%;
+    object-fit: cover;
 }
 
 .instafeed__box {
+    max-width: 300px;
     margin-right: 50px;
 }
 
@@ -869,6 +903,11 @@ header {
     font-size: 16px;
     flex-direction: column;
 
+    svg {
+        height: 40px;
+        width: 40px;
+    }
+
     .instafeed__box__icon {
         width: 40px;
         height: 40px;
@@ -880,34 +919,41 @@ header {
     }
 }
 
+#instafeed__instagram__icon {
+    fill: #22cbff;
+}
+
 .instafeed__box:first-child:hover {
     background-color: #22cbff ;
     color: #fff;
     text-decoration: none;
 
-    ::before {
-        background-color:#22cbff ;
+    .instafeed__box__border {
+        display: none;
+        
     }
+
+    #instafeed__instagram__icon {
+        fill: #fff;
+        transition-delay: 0.1s;
+    }
+
 }
 
-.instafeed__box:first-child::before {
-    content: '';
-    top: -1px;
+.instafeed__box .instafeed__box__border {
+    
+    top: -0.5%;
     height: 78px;
     border-top: 2px solid #fff;
     border-right: 2px solid #fff;
     border-left: 2px solid #fff;;
     position: absolute;
     z-index: 5;
-    width: 300.2px;
-    left: -1px;
+    width: 102%;
+    left: -1%;
 }
 
 @media screen and (max-width: 1090px) {
-    
-    #instafeed {
-        display: none;
-    }
 
     .row {
         margin: 0px;
@@ -973,10 +1019,15 @@ header {
         margin-left: 0px;
     }
 
+    .main__features__cards {
+        flex-wrap: wrap;
+    }
     
-    
-    .main__features .main__features__card {
+    .main__features__cards .main__features__card {
         height: 362px;
+        width: 360px;
+        max-width: unset;
+        margin-bottom: 20px;
     }
 
     .main__reservation .main__container {
@@ -1101,15 +1152,47 @@ header {
    .main__make-reservation__container {
        justify-content: center !important;
    }
+   
+   .main__instafeed__container {
+       min-width: 360px;
+       transform: translateY(-20px);
+       height: auto;
+   }
+
+   .instafeed__box .instafeed__box__border {
+        display: none;
+   }
+
+   #instafeed {
+       flex-wrap: wrap;
+   }
+
+   .instafeed__box {
+       margin: 0px 15px 30px;
+   }
+
+   .instafeed__box:first-child {
+       margin-right: 15px;
+   }
+
+   .instafeed__img {
+       width: 250px;
+       height: 250px;
+   }
+
+   .instafeed__box:first-child {
+       height: 250px;
+       width: 250px;
+   }
+
+   .show__hoisting__container {
+       bottom: 65px;
+   }
 
 }
 
 @media screen and (max-width: 920px) {
    
-    #instafeed {
-        display: none;
-    }
-
     h1 {
         font-size: 32px;
         letter-spacing: 1px;
@@ -1148,7 +1231,7 @@ header {
     .mobile__nav {
         position: fixed;
         top: 0;
-        left: -110%;
+        left: -125%;
         width: 375px;
         height: 100%;
         background-color: #fff;
@@ -1157,16 +1240,21 @@ header {
         flex-direction: column;
         justify-content: center;
         z-index: 20;
-        transition-duration: 1s;
-        a {
+        transition-duration: 0.5s;
+        .header__nav__item {
             color: #061c28;
             font-size: 32px;
             font-family: 'Proxima Nova SB';
             margin-bottom: 51px;
         }
 
-        a:last-child {
+        .header__nav__item:last-child {
             margin-bottom: 0;
+        }
+
+        .mobile__nav__social-container {
+            position: absolute;
+            z-index: 22;
         }
     }
 
@@ -1234,7 +1322,28 @@ header {
         background-color: #061c28;
         transition-duration: 1s;
     }
+    
+    .mobile__nav__social {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        display: flex;
+        align-items: center;
 
+
+        svg {
+            height: 32px;
+            width: 32px;
+            margin-left: 30px;
+        }
+    }
+
+    .mobile__nav__social-rect {
+        width: 40px;
+        height: 2px;
+        background-color: #22cbff;
+    }
+    
     .header__logo.mr-auto {
         width: 107px;
         height: 70px;
@@ -1243,12 +1352,21 @@ header {
 
     .header__callback__button {
         display: flex;
-        background-image: url('/images/icon_phone.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
         height: 32px;
         width: 32px;
+    }
+
+    .header__callback__button__icon {
+        height: 32px;
+        width: 32px;
+    }
+
+    #Landing-page-XS {
+        fill: white !important;
+    }
+
+    #hoisting__phone {
+        fill: #061c28;
     }
 
     .header__container-padding {
@@ -1616,5 +1734,26 @@ header {
     .footer__created-by {
         text-align: center;
     }
+
+    .instafeed__img {
+        height: 168px;
+        width: 168px;
+    }
+
+    .instafeed__box:first-child {
+        height: 168px;
+        width: 168px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        padding: 0 13px;
+        font-size: 14px;
+    }
    
+    .instafeed__box .instafeed__box__border {
+        display: none;
+     }
+
+    .main__instafeed__container {
+        min-width: unset;
+    }
 }
