@@ -20,6 +20,74 @@
     font-style: normal;
 }
 
+[data-aos = 'opacityscale'] {
+    opacity: 0;
+    transform:scale(1.2);
+    transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &.aos-animate {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+[data-aos = 'fromOpacity'] {
+    opacity: 0;
+    transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &.aos-animate {
+        opacity: 1;
+    }
+}
+
+[data-aos = 'type1a'] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &.aos-animate {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+[data-aos = 'type1'] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &.aos-animate {
+        opacity: 1;
+        transform: translateY(-40px);
+    }
+}
+
+[data-aos = 'type2'] {
+    transform: translateX(-100%);
+    transition-property: transform;
+    transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &.aos-animate {
+        transform: translateX(0%);
+    }
+
+}
+
+[data-aos = 'type2b'] {
+    transform: translateY(-105%);
+    transition-property: transform;
+    transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &.aos-animate {
+        transform: translateY(0%);
+    }
+}
+
+
+
+[data-aos = 'type3b'] {
+    transform: translateX(-45px);
+    transition-property: transform;
+    transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &.aos-animate {
+        transform: translateX(45px);
+    }
+}
+
 *{
     outline: none;
 }
@@ -76,6 +144,7 @@ header {
     position: relative;
     overflow: hidden;
 }
+
 
 .header__container {
     max-width: 1680px;
@@ -209,18 +278,7 @@ header {
     color: #fff;
 }
 
-[data-aos="zoom-out-up"] {
-    opacity: 0;
-    transform: translateY(0px) scale(1.2);
-}
 
-[data-aos="zoom-out-up"].aos-animate {
-    transform: translateY(-40px) scale(1);
-    opacity: 1;
-    animation-duration: 1.4s;
-    opacity: 1;
-    animation-delay: 0.3s;
-}
 
 .header__content-btn {
     width: 257px;
@@ -263,6 +321,7 @@ header {
     .main__about__title {
         margin-bottom: 42px;
     }
+
     
     .main__about__description {
         font-size: 16px;
@@ -272,9 +331,11 @@ header {
         max-width: 458px;
         margin-left: 93px;
     }
+
     
     .image__animation {
         position: relative;
+        overflow: hidden;
     }
 
     .rectangle {
@@ -326,6 +387,7 @@ header {
 
     .image__animation {
         position: relative;
+        overflow: hidden;
     }
 
     .rectangle {
@@ -383,6 +445,13 @@ header {
 
 }
 
+.main__reservation__content {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transform: translateX(-80px);
+    padding-left: 40px;
+}
 
 .main__reservation {
 
@@ -397,8 +466,8 @@ header {
     .reservation__container {
         position: relative;
         padding: 146px 285px;
+        
     }
-
    
 
     .main__reservation-title {
@@ -435,6 +504,10 @@ header {
 .main__gallery {
 
     padding: 100px 0px 120px ;
+
+    .main__gallery__head {
+        align-items: flex-start !important;
+    }
 
     .main__container {
         padding: 0px 285px;
@@ -1057,8 +1130,14 @@ header {
         padding-left: 60px;
     }
 
+    .main__reservation .main__reservation-description {
+        max-width: 415px;
+    }
+
     .main__reservation__content {
         max-width: unset;
+        transform: translateX(-60px);
+        padding-left: 20px;
     }
 
     .main__reservation__img {
@@ -1082,6 +1161,7 @@ header {
 
     .main__gallery .main__gallery__description {
         margin-left: 0;
+        max-width: 415px;
     }
 
     .carousel-control-button {
@@ -1245,7 +1325,19 @@ header {
 
     .set__overflow {
         overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+        height: 100%;
     }
+
+    .header__background {
+        position: relative;
+        height: 100%;
+        background-color: black;
+        opacity: 0.2;
+        width:100%;
+    }
+
 
     header {
         padding-bottom: 173px;
@@ -1334,7 +1426,7 @@ header {
         border-radius: 2px;
         background-color: #fff;
         width: 100%;
-        transition-duration: 1s;
+        transition-duration: 0.5s;
     }
 
     .burger__menu:after {
@@ -1346,14 +1438,14 @@ header {
         border-radius: 2px;
         background-color: #fff;
         width: 32px;
-        transition-duration: 1s;
+        transition-duration: 0.5s;
     }
 
     .burger__menu.menu__active::before {
         transform: rotate(45deg);
         top: 11px;
         background-color: #061c28;
-        transition-duration: 1s;
+        transition-duration: 0.5s;
     }
 
     .burger__menu.menu__active span {
@@ -1367,7 +1459,19 @@ header {
         background-color: #061c28;
         transition-duration: 1s;
     }
+
+    .burger__menu.menu__active {
+        position: fixed;
+    }
     
+    .burger__menu.menu__active2 {
+        display: none;
+    }
+
+    .burger__menu__pos{
+        top: 36px;
+    }
+
     .mobile__nav__social {
         position: absolute;
         bottom: 30px;
@@ -1435,6 +1539,7 @@ header {
         padding: 0;
         max-width: 100%;
     }
+    
 
     .header__content-description {
         font-size: 16px;

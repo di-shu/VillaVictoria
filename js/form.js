@@ -1,6 +1,6 @@
 
 let form = document.querySelector('#modalCallback'),
-    succesForm = document.querySelector('modalCallback__success');
+    succesForm = document.querySelector('#modalCallback__success');
 
 export default function sendForm() {
     document.forms.callback.onsubmit = function(e) {

@@ -11,6 +11,8 @@ import checkInput from '../js/input-styiling';
 setSlickSlider();
 settingsSlider();
 
+
+
 getPosts();
 
 AOS.init({
@@ -27,4 +29,3 @@ sendForm();
 initMask();
 
 checkInput();
-
