@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'Proxima Nova Rg';
   src: url("/fonts/subset-ProximaNova-Regular.eot");
@@ -45,6 +46,15 @@
   transform: translateY(0px);
 }
 
+[data-aos='type3toright'] {
+  transform: translateX(-40px);
+  transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+[data-aos='type3toright'].aos-animate {
+  transform: translateY(0px);
+}
+
 [data-aos='type1'] {
   opacity: 0;
   transform: translateY(40px);
@@ -56,34 +66,54 @@
   transform: translateY(-40px);
 }
 
+[data-aos='type1с'] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+[data-aos='type1с'].aos-animate {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
 [data-aos='type2'] {
-  transform: translateX(-100%);
-  transition-property: transform;
+  clip-path: inset(0 100% 0 0);
+  transition-property: clip-path;
   transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 [data-aos='type2'].aos-animate {
-  transform: translateX(0%);
+  clip-path: inset(0 0 0 0);
 }
 
 [data-aos='type2b'] {
-  transform: translateY(-105%);
-  transition-property: transform;
+  clip-path: inset(0 0 100% 0);
+  transition-property: clip-path;
   transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 [data-aos='type2b'].aos-animate {
-  transform: translateY(0%);
+  clip-path: inset(0 0 0 0);
+}
+
+[data-aos='type3'] {
+  clip-path: inset(0 100% 0 0);
+  transition-property: clip-path;
+}
+
+[data-aos='type3'].aos-animate {
+  clip-path: inset(0 0 0 0);
 }
 
 [data-aos='type3b'] {
-  transform: translateX(-45px);
+  transform: translateX(45px);
   transition-property: transform;
   transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 [data-aos='type3b'].aos-animate {
-  transform: translateX(45px);
+  transform: translateX(90px);
 }
 
 * {
@@ -119,6 +149,22 @@ button:active, button:focus {
 button:hover {
   transition-duration: 0.4s;
   transition-timing-function: ease-in-out;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.2;
+}
+
+.container-fluid {
+  position: relative;
+  z-index: 5;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 button::-moz-focus-inner {
@@ -428,9 +474,7 @@ header {
 .main__reservation__content {
   position: relative;
   z-index: 1;
-  overflow: hidden;
-  transform: translateX(-80px);
-  padding-left: 40px;
+  transform: translateX(-90px);
 }
 
 .main__reservation {
@@ -979,6 +1023,7 @@ header {
 }
 
 #instafeed__instagram__icon {
+  transition-delay: 0.7s;
   fill: #22cbff;
 }
 
@@ -994,7 +1039,7 @@ header {
 
 .instafeed__box:first-child:hover #instafeed__instagram__icon {
   fill: #fff;
-  transition-delay: 0.1s;
+  transition-delay: 0.7s;
 }
 
 .instafeed__box .instafeed__box__border {
@@ -1007,6 +1052,7 @@ header {
   z-index: 5;
   width: 102%;
   left: -1%;
+  transition-duration: 0.7s;
 }
 
 @media screen and (max-width: 1090px) {
@@ -1617,6 +1663,7 @@ header {
   }
   .main__make-reservation {
     padding: 20px 20px 40px;
+    background-image: url("/images/background_form2.jpg");
   }
   .main__reservation__contant-container {
     max-width: 275px;
