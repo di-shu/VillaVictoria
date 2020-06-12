@@ -20,6 +20,16 @@
     font-style: normal;
 }
 
+@keyframes type3 {
+    0% {
+        clip-path: inset(  0 100%  0  0 );
+    }
+
+   100%{
+        clip-path: inset(0 0 0 0);
+    };
+}
+
 [data-aos = 'opacityscale'] {
     opacity: 0;
     transform:scale(1.2);
@@ -104,6 +114,8 @@
   &.aos-animate {
     clip-path: inset(0 0 0 0);
   }
+
+ 
 }
 
 [data-aos = 'type3b'] {
@@ -112,6 +124,15 @@
     transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     &.aos-animate {
         transform: translateX(90px);
+    }
+
+    @media screen and (max-width: 768px){
+        transform: translateX(0px);
+        transition-property: transform;
+        transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &.aos-animate {
+            transform: translateX(0px);
+        }
     }
 }
 
@@ -743,7 +764,18 @@ header {
     opacity: 1;
     backdrop-filter: blur(10px);
     background-color: unset;
+
 }
+
+// .modal.fade .modal-dialog {
+//     transform: none;
+// }
+
+// .modal.show .modal-dialog {
+//     transform: none;
+//     animation: type3 1.4s;
+// }
+
 .modal-content {
     border: none;
     border-radius: unset;
@@ -758,7 +790,7 @@ header {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, 25%);
-
+    // animation: type3 1.4s ease-in-out 0s 1 normal none running;
     .modal__close {
         width: 24px;
         height: 24px;
@@ -1648,6 +1680,10 @@ header {
         background-color: #061c28;
     }
     
+    .carousel-control-menu {
+        position: relative;
+    }
+
     .main__about {
         padding-top: 53px;
     }
@@ -1771,9 +1807,13 @@ header {
         height: 366px;
         right: -21%;
     }
+    
+    .main__reservation__content {
+        transform: translateX(0px);
+    }
 
     .main__gallery {
-        padding: 53px 0px 85px;
+        padding: 53px 0px 60px;
     }
 
     .main__gallery__head {
@@ -1794,6 +1834,7 @@ header {
         width: 92%;
         height: 50px;
         padding: 9px 15px;
+        position: relative;
     }
 
     .main__gallery .progress-number {

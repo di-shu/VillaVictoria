@@ -15,6 +15,15 @@
   font-style: normal;
 }
 
+@keyframes type3 {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 [data-aos='opacityscale'] {
   opacity: 0;
   transform: scale(1.2);
@@ -114,6 +123,17 @@
 
 [data-aos='type3b'].aos-animate {
   transform: translateX(90px);
+}
+
+@media screen and (max-width: 768px) {
+  [data-aos='type3b'] {
+    transform: translateX(0px);
+    transition-property: transform;
+    transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  [data-aos='type3b'].aos-animate {
+    transform: translateX(0px);
+  }
 }
 
 * {
@@ -1503,6 +1523,9 @@ header {
   .header__container__full .burger__menu span {
     background-color: #061c28;
   }
+  .carousel-control-menu {
+    position: relative;
+  }
   .main__about {
     padding-top: 53px;
   }
@@ -1600,8 +1623,11 @@ header {
     height: 366px;
     right: -21%;
   }
+  .main__reservation__content {
+    transform: translateX(0px);
+  }
   .main__gallery {
-    padding: 53px 0px 85px;
+    padding: 53px 0px 60px;
   }
   .main__gallery__head {
     padding: 0 15px;
@@ -1618,6 +1644,7 @@ header {
     width: 92%;
     height: 50px;
     padding: 9px 15px;
+    position: relative;
   }
   .main__gallery .progress-number {
     margin-right: 10px;
