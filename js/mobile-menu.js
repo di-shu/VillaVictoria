@@ -1,32 +1,26 @@
-export default function settingMobMenu(){
-    $(document).ready(function() {
-        $('.burger__menu').click(function(e){
-            $('.burger__menu, .mobile__nav').toggleClass('menu__active');
-            $('body, html').toggleClass('set__overflow');
-            $('.burger__menu2').toggleClass('menu__active2');
-            $('.mobile__nav a').click(function(e){
-                if($('.burger__menu, .mobile__nav').hasClass('menu__active')&&$('body, html').hasClass('set__overflow')){
-                    $('.burger__menu, .mobile__nav').removeClass('menu__active');
-                    $('body, html').removeClass('set__overflow');
-                    if($('.burger__menu2').hasClass('menu__active2')){
-                        $('.burger__menu2').removeClass('menu__active2');
-                    }
-                    
-                }
-                
-            })
-            
-        })
 
-        $('.burger__menu2').click(function(e){
-            $('.burger__toggle').addClass('burger__menu__pos');
-        })
-        
-        $('.burger__toggle').click(function(e){
-            if($('.burger__toggle').hasClass('burger__menu__pos')){
-                $('.burger__toggle').removeClass('burger__menu__pos');
-            }
-        })
-        
-    });
+let menu = $('.hoisting__mobile-nav');
+let closeMenu = $('.close__hoisting__mobile-nav');
+let hoistingMenu = $('.header__hoisting-head');
+let main = $('main');
+export default function settingMobMenu(){
+    $('.burger__menu').on('click', function () {
+        menu.addClass('show__hoisting-menu');
+        main.addClass('main__active');
+        $('menu, html').addClass('block__screen');
+        if(hoistingMenu.hasClass('show__head')) {
+            hoistingMenu.removeClass('show__head');
+        }
+    })
+    closeMenu.on('click', function () {
+        menu.removeClass('show__hoisting-menu');
+        main.removeClass('main__active');
+        $('menu, html').removeClass('block__screen');
+        if(pageYOffset > 500) {
+            hoistingMenu.addClass('show__head');
+        }
+
+    })
+
+
 }

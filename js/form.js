@@ -23,7 +23,6 @@ export default function sendForm() {
                 if(form.classList.contains('show')){
                     form.classList.remove('show');
                 }
-                succesForm.classList.add('show');
             }
         }
 

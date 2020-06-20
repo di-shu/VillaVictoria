@@ -1,21 +1,12 @@
-const header = document.querySelector('.header__container__full');
-
-
+let menu = document.querySelector('.header__hoisting-head');
 export default function checkScrollYHead() {
+  document.addEventListener('scroll', function () {
 
-    window.addEventListener('scroll', function() {
-        if(pageYOffset < 500) {
-
-            if(header.classList.contains('show__head')){
-                header.classList.remove('show__head');
-                header.classList.add('hide__head');
-            }
-        } else {
-            if(header.classList.contains('hide__head')) {
-                header.classList.remove('hide__head');
-                header.classList.add('show__head');
-            }
+        if(pageYOffset > 500) {
+             menu.classList.add('show__head');
         }
-    });
-   
+        else {
+            menu.classList.remove('show__head');
+        }
+  })
 }

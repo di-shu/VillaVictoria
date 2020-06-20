@@ -19,6 +19,8 @@
   "dependencies": {
     "in-view": "^0.6.1",
     "instafeed.js": "^1.4.1",
-    "is-in-viewport": "^3.0.4"
+    "is-in-viewport": "^3.0.4",
+    "live-server": "^1.2.1",
+    "node-sass": "^4.14.1"
   }
 }

@@ -2,7 +2,7 @@ const buttonPrev = document.querySelector('.main__gallery .carousel-control-prev
 const buttonNext = document.querySelector('.main__gallery .carousel-control-next');
 const sliderItems = document.querySelectorAll('.main__gallery .carousel-item');
 let countSlides = document.querySelector('.main__gallery .progress-number');
-countSlides.innerHTML = `0${1} / ${sliderItems.length}`;
+countSlides.innerHTML = `0${1} / 0${sliderItems.length}`;
 const slider = document.getElementById('carouselExampleControls');
 
 const carousel = document.querySelector('.carousel-inner');
@@ -26,7 +26,7 @@ export default function settingsSlider() {
                 
                 if(sliderItems[i].classList.contains('active')){
                     if(i < 9){
-                        countSlides.innerHTML = `${0}${sliderItems[i].getAttribute('data-id')} / ${sliderItems.length}`;
+                        countSlides.innerHTML = `${0}${sliderItems[i].getAttribute('data-id')} / ${0}${sliderItems.length}`;
                         progressbar.style.width = (sliderItems[i].getAttribute('data-id')) / sliderItems.length *100 + '%';
                     } else {
                         countSlides.innerHTML = `${sliderItems[i].getAttribute('data-id')} / ${sliderItems.length}`;
@@ -51,7 +51,7 @@ export default function settingsSlider() {
                 
                 if(sliderItems[i].classList.contains('active')){
                     if(i < 9){
-                        countSlides.innerHTML = `${0}${sliderItems[i].getAttribute('data-id')} / ${sliderItems.length}`;
+                        countSlides.innerHTML = `${0}${sliderItems[i].getAttribute('data-id')} / ${0}${sliderItems.length}`;
                         progressbar.style.width = (sliderItems[i].getAttribute('data-id')) / sliderItems.length *100 + '%';
                     } else {
                         countSlides.innerHTML = `${sliderItems[i].getAttribute('data-id')} / ${sliderItems.length}`;
@@ -72,7 +72,7 @@ export default function settingsSlider() {
                 
                 if(sliderItems[i].classList.contains('active')){
                     if(i < 9){
-                        countSlides.innerHTML = `${0}${sliderItems[i].getAttribute('data-id')} / ${sliderItems.length}`;
+                        countSlides.innerHTML = `${0}${sliderItems[i].getAttribute('data-id')} / ${0}${sliderItems.length}`;
                         progressbar.style.width = (sliderItems[i].getAttribute('data-id')) / sliderItems.length *100 + '%';
                     } else {
                         countSlides.innerHTML = `${sliderItems[i].getAttribute('data-id')} / ${sliderItems.length}`;

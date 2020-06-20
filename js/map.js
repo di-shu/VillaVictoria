@@ -100,5 +100,5 @@ function initMap() {
             }
         ]});
     // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({position: location, map: map, icon: './images/marker.png'});
+    var marker = new google.maps.Marker({position: location, map: map, icon: './images/icon_geo.svg'});
 }
