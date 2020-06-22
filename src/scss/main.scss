@@ -1255,15 +1255,15 @@ body {
 
 .instafeed__box .instafeed__box__border {
     opacity: 1;
-    top: -0.5%;
-    height: 78px;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    height: 80px;
     border-top: 2px solid #fff;
     border-right: 2px solid #fff;
     border-left: 2px solid #fff;;
     position: absolute;
     z-index: 5;
-    width: 102%;
-    left: -1%;
     transition-duration: 1.4s;
 }
 
