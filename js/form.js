@@ -1,6 +1,6 @@
 
-let form = document.querySelector('#modalCallback'),
-    succesForm = document.querySelector('#modalCallback__success');
+let form = $('#modalCallback'),
+    succesForm = $('#modalCallback__success');
 
 export default function sendForm() {
     document.forms.callback.onsubmit = function(e) {
@@ -20,12 +20,8 @@ export default function sendForm() {
     
         request.onreadystatechange = function() {
             if(request.readyState === 4 && request.status === 200) {
-                if(form.classList.contains('show')){
-                    form.classList.remove('show');
-                    succesForm.classList.remove('fade');
-                    succesForm.classList.add('show');
-                    succesForm.style.display = 'block';
-                }
+                    form.modal('hide');
+                    succesForm.modal('show');
             }
         }
 

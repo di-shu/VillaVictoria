@@ -7,6 +7,7 @@ import setSlickSlider from '../js/slick-slider';
 import sendForm from '../js/form';
 import initMask from '../js/mask-input';
 import checkInput from '../js/input-styiling';
+let succesForm = $('#modalCallback__success .modal__callback__button');
 
 setSlickSlider();
 settingsSlider();
@@ -29,3 +30,9 @@ sendForm();
 initMask();
 
 checkInput();
+
+succesForm.on('click', function () {
+    succesForm.modal('hide');
+})
+
+
