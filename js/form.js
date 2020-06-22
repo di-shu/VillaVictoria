@@ -22,6 +22,9 @@ export default function sendForm() {
             if(request.readyState === 4 && request.status === 200) {
                 if(form.classList.contains('show')){
                     form.classList.remove('show');
+                    succesForm.classList.remove('fade');
+                    succesForm.classList.add('show');
+                    succesForm.style.display = 'block';
                 }
             }
         }
