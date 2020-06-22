@@ -913,6 +913,24 @@ body {
 
 }
 
+#modal__callback__button:hover {
+    background-color: #178db2;
+}
+
+#modalCallback__success {
+    .modal__success-content {
+        transform: translate(-50%,60%);
+    }
+    .modal__callback__button:hover {
+        background-color: #178db2;
+    }
+}
+
+.modal__close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
 
 .modal-content {
     border: none;

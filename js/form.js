@@ -2,6 +2,7 @@
 let form = $('#modalCallback'),
     succesForm = $('#modalCallback__success');
 
+
 export default function sendForm() {
     document.forms.callback.onsubmit = function(e) {
         e.preventDefault();
@@ -21,7 +22,10 @@ export default function sendForm() {
         request.onreadystatechange = function() {
             if(request.readyState === 4 && request.status === 200) {
                     form.modal('hide');
-                    succesForm.modal('show');
+                    setTimeout(function () {
+                        succesForm.modal('show');
+                    }, 500 )
+
             }
         }
 
