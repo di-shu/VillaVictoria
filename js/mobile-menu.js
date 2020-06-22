@@ -3,6 +3,7 @@ let menu = $('.hoisting__mobile-nav');
 let closeMenu = $('.close__hoisting__mobile-nav');
 let hoistingMenu = $('.header__hoisting-head');
 let main = $('main');
+let hoistingItems = $('.hoisting__mobile-nav .hoisting__nav__item');
 export default function settingMobMenu(){
     $('.burger__menu').on('click', function () {
         menu.addClass('show__hoisting-menu');
@@ -21,6 +22,8 @@ export default function settingMobMenu(){
         }
 
     })
+
+
 
 
 }

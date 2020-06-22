@@ -34,6 +34,7 @@
 
 [data-aos = 'opacityscale'] {
     opacity: 0;
+    background-color: #22cbff;
     transform:scale(1.2);
     transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     &.aos-animate {
@@ -163,6 +164,7 @@ a:hover {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .block__screen {
@@ -209,7 +211,6 @@ body {
     position: relative;
     overflow-x: hidden;
 }
-
 
 
 .container-fluid-back {
@@ -444,6 +445,10 @@ body {
 .header__content-btn {
     width: 257px;
     height: 56px;
+}
+
+main {
+    background-color: #22cbff;
 }
 
 .main__about {
@@ -928,6 +933,7 @@ body {
     }
     .modal__callback__button:hover {
         background-color: #178db2;
+        color: #fff;
     }
 }
 
