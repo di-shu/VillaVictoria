@@ -68,6 +68,13 @@
     &.aos-animate {
         transform: translateY(0px);
     }
+    
+    @media screen and (max-width: 768px) {
+        transform: none;
+        &.aos-animate {
+           transform: none;
+        }
+    }
 }
 
 
@@ -144,6 +151,7 @@
 
 *{
     outline: none;
+    -webkit-appearance: none !important;
 }
 
 h1 {
@@ -182,6 +190,15 @@ button,
 button:hover {
     transition-duration: 0.4s ;
     transition-timing-function: ease-in-out;
+}
+
+
+.main__header-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+
 }
 
 .container-fluid-back::before {
@@ -397,8 +414,13 @@ body {
 }
 
 .header__container__pos {
-    position: relative;
-    transform: translateY(317px)
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    padding: 0;
 }
 
 .header__nav2 {
@@ -411,10 +433,12 @@ body {
     .header__nav2__item {
         margin-bottom: 20px;
         opacity: 0.5;
+        transition: all 0.4s ease-out;
     }
 
     .header__nav2__item:hover {
         opacity: 1;
+        transition: all 0.4s ease-out;
     }
 
     .header__nav2__rectangle {
@@ -447,7 +471,7 @@ body {
     height: 56px;
 }
 
-main {
+.main__about__back {
     background-color: #22cbff;
 }
 
@@ -590,10 +614,10 @@ main {
 }
 
 .main__features {
-    padding-top: 122px;
+    padding-top: 132px;
     padding-bottom: 100px;
     .main__features__title {
-        margin-bottom: 59px;
+        margin-bottom: 62px;
         margin-left: 10px;
     }
 
@@ -908,17 +932,18 @@ main {
     opacity: 1;
     backdrop-filter: blur(10px);
     background-color: unset;
-    -webkit-backdrop-filter: blur(10px);
-    position: relative;
+    -webkit-backdrop-filter : blur(10px);
+    position: fixed;
 
     &:before {
         content: '';
         position: absolute;
-        background-color: black;
+        background-color: #000;
         left: 0;
-        top: 0;
         right: 0;
         bottom: 0;
+        top: 0;
+        opacity: 0.4;
     }
 
 }
@@ -928,13 +953,15 @@ main {
 }
 
 #modalCallback__success {
-    .modal__success-content {
-        transform: translate(-50%,60%);
-    }
+
     .modal__callback__button:hover {
         background-color: #178db2;
         color: #fff;
     }
+}
+
+.modal-dialog {
+    max-width: 920px;
 }
 
 .modal__close {
@@ -946,17 +973,15 @@ main {
 .modal-content {
     border: none;
     border-radius: unset;
-    width: 920px;
     height: 546px;
     background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, 25%);
+    margin: 0 auto;
+
+    padding-left: 202px;
+    padding-right: 202px;
     // animation: type3 1.4s ease-in-out 0s 1 normal none running;
 
 
@@ -993,7 +1018,7 @@ main {
             margin-bottom: 10px;
             border-radius: 4px;
             border: 1px solid #22cbff;
-            padding: 18px 0px 16px 20px;
+            padding: 18px 0px 16px 15px;
             outline:none;
             width: 100%;
             height: 48px;
@@ -1032,8 +1057,7 @@ main {
             outline: none;
             border: 0;
             height: 48px;
-
-
+            font-weight: 600;
         }
 
        .modal__button-color {
@@ -1123,6 +1147,12 @@ main {
     .footer__callback__info__main {
         font-size: 18px;
         color: #000;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .footer__callback__info__main:hover {
+        color: #22cbff;
+        transition: all 0.2s ease-in-out;
     }
 }
 
@@ -1141,15 +1171,18 @@ main {
     align-items: center;
 }
 
+.footer__created-by:hover {
+    color: #22cbff;
+    transition: all 0.2s ease-in-out;
+}
+
 .footer__created-by {
     color: #061c28;
     font-size: 16px;
     line-height: 26px;
+    transition: all 0.2s ease-in-out;
 }
 
-.footer__created-by:hover {
-    color: #061c28;
-}
 
 .footer__vila-victoria {
     font-size: 16px;
@@ -1202,15 +1235,41 @@ main {
 
 .instafeed__box {
     max-width: 300px;
-    margin-right: 50px;
+    margin: 0px 25px 50px;
+    position: relative;
+}
+
+.instafeed__box {
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: black;
+        opacity: 0;
+        transition-duration: 0.6s;
+    }
+}
+
+.instafeed__box:hover  {
+        &:before {
+            opacity: 0.4;
+            transition-duration: 0.6s;
+        }
+
+}
+
+.instafeed__box-wrapper {
+    width: 300px;
+    height: 300px;
+    order: 4;
+    margin: 0px 25px 50px;
 }
 
 .instafeed__box:first-child {
-    width: 300px;
-    height: 300px;
     border: 2px solid #22cbff;
-    order: 4;
-    margin-right: 0;
     position: relative;
     display: flex;
     justify-content:center;
@@ -1220,7 +1279,10 @@ main {
     text-transform: uppercase;
     font-size: 16px;
     flex-direction: column;
-
+    transition-duration: 0.6s;
+    width: 100%;
+    height: 100%;
+    margin: 0;
     svg {
         height: 40px;
         width: 40px;
@@ -1236,6 +1298,7 @@ main {
         text-align: center;
     }
 }
+
 
 #instafeed__instagram__icon {
     fill: #22cbff;
@@ -1255,6 +1318,10 @@ main {
     #instafeed__instagram__icon {
         fill: #fff;
         transition-duration: 0.6s;
+    }
+
+    &:before {
+        display: none;
     }
 
 }
@@ -1493,22 +1560,24 @@ main {
    }
 
    .instafeed__box {
+       height: 250px;
+       width: 250px;
        margin: 0px 15px 30px;
    }
 
-   .instafeed__box:first-child {
-       margin-right: 15px;
-   }
+    .instafeed__box-wrapper {
+        margin: 0px 15px 30px;
+        height: 250px;
+        width: 250px;
+
+    }
 
    .instafeed__img {
        width: 250px;
        height: 250px;
    }
 
-   .instafeed__box:first-child {
-       height: 250px;
-       width: 250px;
-   }
+
 
    .show__hoisting__container {
        bottom: 65px;
@@ -1524,17 +1593,17 @@ main {
         max-height: 450px;
         padding-top: 20px;
         padding-bottom: 20px;
+        padding-left: 32px;
+        padding-right: 32px;
         .modal__close {
             top: -40px;
             right: 0;
-            .modal__close__1 {
-                background-color: #cdd2d4;
-            }
-
-            .modal__close__2 {
-                background-color: #cdd2d4;
+            opacity: 1;
+            .modal__button-color {
+                fill: white;
             }
         }
+
     }
 
     .modal-content .modalCallbackForm__group {
@@ -1557,11 +1626,10 @@ main {
         height: 100%;
         background-color: black;
         opacity: 0.2;
-        width:100%;
+        width: 100%;
     }
 
-    .header__head-container
-    {
+    .header__head-container {
         padding: 15px 15px 0px;
     }
 
@@ -1571,6 +1639,7 @@ main {
 
     .burger__menu {
         display: flex;
+
     }
 
     .header__container.header__container-padding .row {
@@ -1622,7 +1691,7 @@ main {
     .header__content-title {
         font-size: 32px;
         line-height: 32px;
-        letter-spacing: 1px;
+        letter-spacing: 0px;
         width: 100%;
         margin-bottom: 16px;
     }
@@ -1652,469 +1721,503 @@ main {
 
     .header__nav2 {
         flex-direction: row;
-    }
+        left: 0;
+        bottom: 10px;
 
-    .header__container__pos {
-        transform: translate(-30px,145px);
-    }
-
-    .header__nav2 .header__nav2__rectangle {
-        order: 1;
-        width: 40px;
-        height: 2px;
-    }
-
-    .header__nav2 .header__nav2__item {
-        margin-bottom: 0;
-        margin-left: 30px;
-    }
-
-    .header__nav2 .header__nav2__item img {
-        height: 32px;
-        width: 32px;
-    }
-
-    .header__nav2__item {
-        order: 2;
-    }
-
-    .header__nav2__item:last-child {
-        order: 3;
-    }
-
-    .header__nav2__item-instagram {
-        height: 32px;
-        width: 32px;
-    }
-
-    .header__head2 {
-        padding: 0 15px;
-    }
-
-    //ВСПЛЫВАЮЩЕЕ МЕНЮ
-
-    .header__hoisting-head {
-        .burger__menu {
-            span {
-                background-color: #000;
-            }
-
-            &:after {
-                background-color: #000;
-            }
-
-            &:before {
-                background-color: #000;
-            }
+        .header__nav2__rectangle {
+            order: 1;
+            width: 40px;
+            height: 2px;
         }
 
-        padding: 0px 15px;
+        .header__nav2__item {
+            margin-bottom: 0;
+            margin-left: 30px;
+        }
 
+        .header__nav2__item img {
+            height: 32px;
+            width: 32px;
+        }
+
+        .header__nav2__item {
+            order: 2;
+        }
+
+        .header__nav2__item:last-child {
+            order: 3;
+        }
+
+        .header__nav2__item-instagram {
+            height: 32px;
+            width: 32px;
+        }
+
+        .header__head2 {
+            padding: 0 15px;
+        }
     }
+        //ВСПЛЫВАЮЩЕЕ МЕНЮ
 
-    .hoisting__mobile-nav{
-        background-color: #fff;
-        height: 100vh;
-        width: 80vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        position: fixed;
-        z-index: 105;
-        transform: translateX(-100%);
-        transition: 0.6s ease-in-out;
+        .header__hoisting-head {
+            .burger__menu {
+                span {
+                    background-color: #000;
+                }
 
-        .hoisting__nav {
+                &:after {
+                    background-color: #000;
+                }
+
+                &:before {
+                    background-color: #000;
+                }
+            }
+
+            padding: 0px 15px;
+
+        }
+
+        .hoisting__mobile-nav {
+            background-color: #fff;
+            height: 100vh;
+            width: 80vw;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            flex-direction: column;
+            position: fixed;
+            z-index: 105;
+            transform: translateX(-100%);
+            transition: 0.6s ease-in-out;
 
-            a{
-                color: #061c28;
-                font-family: "Proxima Nova SB", sans-serif;
-                font-size: 32px;
-                font-weight: 600;
-                margin-bottom: 51px;
+            .hoisting__nav {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                a {
+                    color: #061c28;
+                    font-family: "Proxima Nova SB", sans-serif;
+                    font-size: 32px;
+                    font-weight: 600;
+                    margin-bottom: 51px;
+                }
+
+                a:last-child {
+                    margin-bottom: 0;
+                }
             }
 
-            a:last-child {
-                margin-bottom: 0;
+            .close__hoisting__mobile-nav {
+                position: absolute;
+                top: 38px;
+                left: 15px;
             }
         }
 
-        .close__hoisting__mobile-nav {
-            position: absolute;
-            top: 38px;
-            left: 15px;
-        }
-    }
-
-    .show__hoisting-menu {
-        transform: translateX(0);
-        transition: 0.6s ease-in-out;
-    }
-    ////
-
-    main {
-        transition: 0.6s ease-in-out;
-        position: relative;
-    }
-
-    //класс сдвига контента
-    .main__active {
-        transform: translateX(80vw);
-        transition: 0.6s ease-in-out;
-    }
-
-    .carousel-control-menu {
-        position: relative;
-    }
-
-    .main__about {
-        padding-top: 53px;
-    }
-
-    .main__elem1 .main__about__title {
-        margin-bottom: 11px;
-    }
-
-    .main__about__description {
-        margin-bottom: 30px;
-    }
-
-    .main__elem1 .main__about__text {
-        padding: 0 15px;
-    }
-
-    .main__about__elements .image__animation {
-        width: 90%;
-    }
-
-    .main__about__elements .image__animation1 {
-        transform: translateY(90px);
-    }
-
-    .main__about__elements .image__animation2 {
-        transform: translateY(60px);
-    }
-
-    .main__about__elements .image__animation3 {
-        transform: translateY(30px);
-    }
-
-    .main__about__elements {
-        margin-top: -75px;
-    }
-
-    #carouselFeatures {
-        display: block;
-    }
-
-    .main__container {
-        padding: 0;
-    }
-
-    .main__features {
-        padding-top: 77px;
-        padding-bottom: 60px;
-    }
-
-    .main__features .main__features__title {
-        text-align: center;
-        margin-bottom: 21px;
-    }
-
-    .main__features__cards {
-        display: none !important;
-    }
-
-    .main__features .main__features__card {
-        height: 335px;
-        width: 300px;
-        padding: 20px 20px 0px;
-        box-shadow: 0 8px 24px -2px rgba(6, 28, 40, 0.12);
-        margin-bottom: 0;
-    }
-
-    .main__features .main__features__card-icon {
-        margin-bottom: 21px;
-    }
-
-    .main__features .main__features__card-title {
-        font-size: 20px;
-        line-height: 24px;
-        margin-bottom: 11px;
-    }
-
-    .main__features .main__features__card-description {
-        font-size: 15px;
-        line-height: 22px;
-    }
-
-    .slick-track {
-        padding: 20px 0px;
-    }
-
-    .slick-slide {
-        margin-right: 20px;
-        transform: scale(0.85);
-        transition-duration: 0.5s;
-    }
-
-    .slick-list {
-        padding-left: 15px;
-    }
-
-    .slick-active {
-        transform: scale(1);
-        transition-duration: 0.5s;
-    }
-
-    .main__reservation {
-        overflow: hidden;
-    }
-
-    .main__reservation .reservation__container {
-        padding: 53px 15px 203px;
-    }
-
-    .main__reservation__content {
-        width: 100%;
-        position: relative;
-        z-index: 5;
-        flex: auto;
-    }
-
-    .main__reservation .main__reservation-title {
-        margin-bottom: 11px;
-    }
-
-    .main__reservation .main__reservation-description {
-        margin-bottom: 25px;
-    }
-
-    .main__reservation .main__reservation__img {
-        height: 366px;
-        right: -21%;
-    }
-
-    .main__reservation__content {
-        transform: translateX(0px);
-        padding-left: 0;
-    }
-
-    .main__gallery {
-        padding: 53px 0px 60px;
-    }
-
-    .main__gallery__head {
-        padding: 0 15px;
-        align-items: flex-start !important;
-    }
-
-    .features__carousel  {
-        display: block;
-    }
-
-    #carouselExampleControls {
-        margin-top: 36px;
-        height: unset;
-    }
-
-    .main__gallery .carousel-control-menu {
-        width: 92%;
-        height: 50px;
-        padding: 9px 15px;
-        position: relative;
-    }
-
-    .main__gallery .progress-number {
-        margin-right: 10px;
-        font-size: 14px;
-        white-space: nowrap;
-    }
-
-    .main__gallery .progress {
-        margin-right: 10px;
-        width: 100%;
-    }
-
-    .main__gallery .carousel-control-prev {
-        margin-right: 10px;
-        width: 32px;
-        height: 32px;
-    }
-
-    .main__gallery .carousel-control-next {
-        width: 32px;
-        height: 32px;
-    }
-
-    .main__gallery .carousel-control-prev_icon {
-        width: 5px;
-        height: 8px;
-    }
-
-    .main__services {
-        padding: 53px 15px 56px;
-    }
-
-    .main__services .main__container{
-        padding: 0;
-    }
-
-    .main__services .main__services__card {
-        max-height: 259px;
-        margin-bottom: 15px;
-        padding-bottom: 5px;
-    }
-
-
-    .main__services .main__services__card:last-child {
-        margin-bottom: 0;
-    }
-
-    .main__services .main__services-title {
-        margin-bottom: 21px;
-    }
-
-    .main__services .main__services__card h1 {
-        font-size: 32px;
-        letter-spacing: 1px;
-    }
-
-    .main__make-reservation {
-        padding: 20px 20px 40px;
-        background-image: url('/images/background_form2.jpg');
-    }
-
-    .main__reservation__contant-container {
-        max-width:275px;
-    }
-
-    .main__make-reservation .main__make-reservation__content {
-        padding: 30px;
-        width: 100%;
-    }
-
-    .main__make-reservation .main__make-reservation_title {
-        font-size: 32px;
-        line-height: 32px;
-        letter-spacing: 1px;
-        max-width:217px;
-        margin-bottom: 21px;
-    }
-
-    .main__make-reservation .main__make-reservation__content button {
-        margin-right: 0;
-    }
-
-    .button__wraper {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .header__head2 {
-        justify-content: space-between;
-    }
-
-    .header2__logo {
-        margin-right: 0 !important;
-    }
-
-    .footer__container {
-        padding: 0px 15px 21px;
-    }
-
-    .footer__head__location {
-        height: 300px;
-    }
-
-    .footer__head__location .container {
-        top: 285px;
-        justify-content: center;
-    }
-
-    .footer__content {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .footer__bottom {
-        padding-top: 325px;
-    }
-
-    .footer__head__callback-card .footer__head__callback__title {
-        font-size: 32px;
-        margin-bottom: 24px;
-    }
-
-    .footer__head__callback-card {
-        padding: 40px 0px 46px 30px;
-        width: 345px;
-        height: 345px;
-        margin-bottom: 20px;
-    }
-
-    .footer__created-by {
-        text-align: center;
-    }
-
-    .instafeed__img {
-        height: 168px;
-        width: 168px;
-    }
-
-    .instafeed__box:first-child {
-        height: 168px;
-        width: 168px;
-        font-weight: 600;
-        letter-spacing: 2px;
-        padding: 0 13px;
-        font-size: 14px;
-        margin-right: 5px;
-
-        svg {
-            height: 30px;
+        .hoisting__head-img {
+            width: 50px;
+            height: 50px;
         }
 
-        .instafeed__box__text {
-            font-size: 12px;
+        .show__hoisting-menu {
+            transform: translateX(0);
+            transition: 0.6s ease-in-out;
+        }
+
+        ////
+
+        main {
+            transition: 0.6s ease-in-out;
+            position: relative;
+        }
+
+        //класс сдвига контента
+        .main__active {
+            transform: translateX(80vw);
+            transition: 0.6s ease-in-out;
+        }
+
+        .carousel-control-menu {
+            position: relative;
+        }
+
+        .main__about {
+            padding-top: 53px;
+        }
+
+        .main__elem1 .main__about__title {
+            margin-bottom: 11px;
+        }
+
+        .main__about__description {
+            margin-bottom: 30px;
+        }
+
+        .main__elem1 .main__about__text {
+            padding: 0 15px;
+        }
+
+        .main__about__elements .image__animation {
+            width: 90%;
+        }
+
+        .main__about__elements .image__animation1 {
+            transform: translateY(90px);
+        }
+
+        .main__about__elements .image__animation2 {
+            transform: translateY(60px);
+        }
+
+        .main__about__elements .image__animation3 {
+            transform: translateY(30px);
+        }
+
+        .main__about__elements {
+            margin-top: -75px;
+        }
+
+        #carouselFeatures {
+            display: block;
+        }
+
+        .main__container {
+            padding: 0;
+        }
+
+        .main__features {
+            padding-top: 77px;
+            padding-bottom: 60px;
+        }
+
+        .main__features .main__features__title {
+            text-align: center;
+            margin-bottom: 21px;
+        }
+
+        .main__features__cards {
+            display: none !important;
+        }
+
+        .main__features .main__features__card {
+            height: 335px;
+            width: 300px;
+            padding: 20px 20px 0px;
+            box-shadow: 0 8px 24px -2px rgba(6, 28, 40, 0.12);
+            margin-bottom: 0;
+        }
+
+        .main__features .main__features__card-icon {
+            margin-bottom: 21px;
+        }
+
+        .main__features .main__features__card-title {
+            font-size: 20px;
+            line-height: 24px;
+            margin-bottom: 11px;
+        }
+
+        .main__features .main__features__card-description {
+            font-size: 15px;
+            line-height: 22px;
+        }
+
+        .slick-track {
+            padding: 20px 0px;
+        }
+
+        .slick-slide {
+            margin-right: 20px;
+            transform: scale(0.85);
+            transition-duration: 0.5s;
+        }
+
+        .slick-list {
+            padding-left: 15px;
+        }
+
+        .slick-active {
+            transform: scale(1);
+            transition-duration: 0.5s;
+        }
+
+        .main__reservation {
+            overflow: hidden;
+        }
+
+        .main__reservation .reservation__container {
+            padding: 53px 15px 203px;
+        }
+
+        .main__reservation__content {
+            width: 100%;
+            position: relative;
+            z-index: 5;
+            flex: auto;
+        }
+
+        .main__reservation .main__reservation-title {
+            margin-bottom: 11px;
+        }
+
+        .main__reservation .main__reservation-description {
+            margin-bottom: 25px;
+        }
+
+        .main__reservation .main__reservation__img {
+            height: 366px;
+            right: -21%;
+        }
+
+        .main__reservation__content {
+            transform: translateX(0px);
+            padding-left: 0;
+        }
+
+        .main__gallery {
+            padding: 53px 0px 60px;
+        }
+
+        .main__gallery__head {
+            padding: 0 15px;
+            align-items: flex-start !important;
+        }
+
+        .features__carousel {
+            display: block;
+        }
+
+        #carouselExampleControls {
+            margin-top: 36px;
+            height: unset;
+        }
+
+        .main__gallery .carousel-control-menu {
+            width: 92%;
+            height: 50px;
+            padding: 9px 15px;
+            position: relative;
+        }
+
+        .main__gallery .progress-number {
+            margin-right: 10px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .main__gallery .progress {
+            margin-right: 10px;
+            width: 100%;
+        }
+
+        .main__gallery .carousel-control-prev {
+            margin-right: 10px;
+            width: 32px;
+            height: 32px;
+        }
+
+        .main__gallery .carousel-control-next {
+            width: 32px;
+            height: 32px;
+        }
+
+        .main__gallery .carousel-control-prev_icon {
+            width: 5px;
+            height: 8px;
+        }
+
+        .main__services {
+            padding: 53px 15px 56px;
+        }
+
+        .main__services .main__container {
+            padding: 0;
+        }
+
+        .main__services .main__services__card {
+            max-height: 259px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+
+
+        .main__services .main__services__card:last-child {
+            margin-bottom: 0;
+        }
+
+        .main__services .main__services-title {
+            margin-bottom: 21px;
+        }
+
+        .main__services .main__services__card h1 {
+            font-size: 32px;
             letter-spacing: 1px;
         }
+
+        .main__make-reservation {
+            padding: 20px 20px 40px;
+            background-image: url('/images/background_form2.jpg');
+        }
+
+        .main__reservation__contant-container {
+            max-width: 275px;
+        }
+
+        .main__make-reservation .main__make-reservation__content {
+            padding: 30px;
+            width: 100%;
+        }
+
+        .main__make-reservation .main__make-reservation_title {
+            font-size: 32px;
+            line-height: 32px;
+            letter-spacing: 1px;
+            max-width: 217px;
+            margin-bottom: 21px;
+        }
+
+        .main__make-reservation .main__make-reservation__content button {
+            margin-right: 0;
+        }
+
+        .button__wraper {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .header__head2 {
+            justify-content: space-between;
+        }
+
+        .header2__logo {
+            margin-right: 0 !important;
+        }
+
+        .footer__container {
+            padding: 0px 15px 21px;
+        }
+
+        .footer__head__location {
+            height: 300px;
+        }
+
+        .footer__head__location .container {
+            top: 285px;
+            justify-content: center;
+        }
+
+        .footer__content {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer__bottom {
+            padding-top: 325px;
+        }
+
+        .footer__head__callback-card .footer__head__callback__title {
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+
+        .footer__head__callback__info.footer__head__callback__info2-mob {
+            width: 200px;
+        }
+
+    .footer__head__callback-card .footer__head__callback__info {
+        margin-bottom: 14px;
     }
 
+        .footer__head__callback-card {
+            padding: 40px 0px 46px 30px;
+            width: 345px;
+            height: 345px;
+            margin-bottom: 20px;
+        }
+
+        .footer__created-by {
+            text-align: center;
+        }
+
+        .instafeed__img {
+            height: 168px;
+            width: 168px;
+        }
+
+        .instafeed__box {
+            height: 168px;
+            width: 168px;
+            margin-right: 5px;
+        }
+
+        .instafeed__box-wrapper {
+            height: 168px;
+            width: 168px;
+            margin: 5px;
+
+            .instafeed__box {
+                width: 168px;
+                height: 168px;
+                font-weight: 600;
+                letter-spacing: 2px;
+                padding: 0 13px;
+                font-size: 14px;
+                margin: 0;
+                svg {
+                    height: 30px;
+                }
+
+                .instafeed__box__text {
+                    font-size: 12px;
+                    letter-spacing: 1px;
+                }
+            }
+        }
 
 
-    .instafeed__box .instafeed__box__border {
-        display: none;
-     }
 
-    .main__instafeed__container {
-        min-width: unset;
-    }
+        .instafeed__box .instafeed__box__border {
+            display: none;
+        }
 
-    .instafeed__box {
-        margin: 5px;
-    }
+        .main__instafeed__container {
+            min-width: unset;
+        }
+
+        .instafeed__box {
+            margin: 5px;
+        }
+
 }
 
-@media screen and(max-width: 320px) {
+@media screen and(max-width: 360px) {
     .header__container-padding {
         padding-top: 60px;
     }
 
+    .instafeed__box-wrapper {
+        height: 138px;
+        width: 138px;
+
+        .instafeed__box {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
     .instafeed__img {
         height: 138px;
         width: 138px;
     }
 
-    .instafeed__box:first-child {
+    .instafeed__box {
         height: 138px;
         width: 138px;
     }
+
 }
 

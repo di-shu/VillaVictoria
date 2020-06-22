@@ -9,7 +9,7 @@ export default function getPosts() {
             let itemSrc = item.node.display_url
             if(i<3) {
                 $('#instafeed').append(
-                    `<a data-aos-duration="1400" data-aos="type1a" data-aos-delay= ${counter} href="https://www.instagram.com/p/` +
+                    `<a target="_blank" data-aos-duration="1400" data-aos="type1a" data-aos-delay= ${counter} href="https://www.instagram.com/p/` +
                     item.node.shortcode +
                     '/" class="instafeed__box" target="_blank" id="' +
                     i +

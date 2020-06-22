@@ -23,7 +23,14 @@ export default function settingMobMenu(){
 
     })
 
-
+    hoistingItems.on('click', function () {
+        menu.removeClass('show__hoisting-menu');
+        main.removeClass('main__active');
+        $('menu, html').removeClass('block__screen');
+        if(pageYOffset > 500) {
+            hoistingMenu.addClass('show__head');
+        }
+    })
 
 
 }
